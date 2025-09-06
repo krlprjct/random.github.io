@@ -1,182 +1,121 @@
-/* Базовые */
-:root {
-  --page-padding: 18px;
-  --gap: 16px;
-  --accent: #0088cc;
-  --muted-bg: #f4f4f4;
-  --text: #222;
-}
-
-* { box-sizing: border-box; }
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: Inter, Arial, sans-serif;
-  color: var(--text);
+  padding: 0;
   background: #fff;
-  -webkit-font-smoothing: antialiased;
+  color: #222;
 }
 
-/* HEADER */
-.site-header {
+.header {
   display: flex;
-  justify-content: space-between; /* слева меню, справа фото */
+  justify-content: space-between;
   align-items: center;
-  padding: 14px var(--page-padding);
-  background: var(--muted-bg);
+  padding: 16px;
+  background: #f4f4f4;
 }
 
-.nav-left {
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--text);
-  user-select: none;
+.header .nav-left {
+  font-weight: bold;
 }
 
 .header-photo {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  text-align: center;
 }
 
 .header-photo .email {
   font-size: 14px;
-  margin-bottom: 8px;
-  color: #333;
+  margin-bottom: 4px;
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 50%;
-  display: block;
+  border-radius: 8px;
 }
-
-/* PAGE / SECTIONS */
-.page { max-width: 1100px; margin: 0 auto; padding-bottom: 40px; }
 
 .section {
-  padding: 28px var(--page-padding);
-  border-bottom: 1px solid #eee;
+  padding: 32px 16px;
 }
 
-.section-title {
-  margin: 0 0 14px 0;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.section h2 {
+  margin-bottom: 16px;
 }
 
-/* маленькие заголовки (как для фото 1С) */
-.small-title {
-  font-size: 14px;
-  text-transform: none;
-  color: #444;
-  font-weight: 600;
+.inline-logo {
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 8px;
 }
 
-/* inline logo before title */
-.inline-logo { height: 28px; display: inline-block; }
+.mission {
+  font-size: 18px;
+  font-style: italic;
+}
 
-/* Миссия (курсив) */
-.mission { margin: 8px 0 0 0; font-size: 16px; font-style: italic; color: #333; }
-
-/* СТАТУСЫ (без центрирования — в ряд, слева) */
 .status-row {
   display: flex;
-  gap: var(--gap);
+  gap: 16px;
   flex-wrap: wrap;
-  align-items: flex-start; /* не центрируем */
-  margin-bottom: 18px;
 }
 
-.status-item img {
-  display: block;
-  max-height: 160px;
-  width: auto;
-  border-radius: 6px;
-  object-fit: cover;
+.status-row img {
+  max-height: 220px;
 }
 
-/* Карточки 1С (под статусами) — маленькие, как просил */
 .cards {
   display: flex;
-  gap: var(--gap);
+  gap: 16px;
   flex-wrap: wrap;
-  align-items: flex-start; /* слева */
 }
 
-.card img {
-  display: block;
-  max-height: 140px;
+.cards .card img {
+  max-height: 240px;
   border-radius: 8px;
-  object-fit: cover;
 }
 
-/* Общественная деятельность и Опора — маленькие фото как 1С */
 .small-photos {
   display: flex;
-  gap: 12px;
   flex-wrap: wrap;
-  align-items: flex-start; /* не центрируем */
-}
-
-.small-item img {
-  display: block;
-  max-height: 110px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-/* Контакты */
-.contacts {
-  display: flex;
   gap: 12px;
-  align-items: center;
 }
 
-.badge {
-  display: inline-block;
-  padding: 10px 18px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
+.small-photos img {
+  max-height: 160px;
+  border-radius: 8px;
 }
 
-/* Footer */
-.footer {
-  padding: 18px var(--page-padding);
-  background: var(--muted-bg);
+.contacts {
   text-align: center;
 }
 
-.join-link {
-  color: var(--accent);
-  font-weight: 700;
+.contacts .badge {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #0088cc;
+  color: #fff;
+  border-radius: 6px;
   text-decoration: none;
 }
 
-/* Responsive */
-@media (max-width: 880px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .header-photo { align-items: flex-start; text-align:left; }
-  .avatar { width: 96px; height: 96px; }
-  .page { padding: 0; }
-  .section { padding: 20px; }
-  .status-item img, .card img, .small-item img { max-height: 120px; }
-  .inline-logo { height: 24px; }
+.footer {
+  text-align: center;
+  padding: 16px;
+  background: #f4f4f4;
 }
 
-@media (max-width: 420px) {
-  .nav-left { font-size: 14px; }
-  .badge { padding: 8px 12px; font-size: 14px; }
-  .header-photo .email { font-size: 13px; }
+.join-link {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #0088cc;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.join-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
 }
