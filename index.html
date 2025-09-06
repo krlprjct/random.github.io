@@ -5,66 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Иван Семериков</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css"/>
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
-    <div class="nav-left">
-      Компании / Общественная деятельность / Контакты
-    </div>
-    <div class="header-photo">
-      <p class="email">ivansemerikov@bk.ru</p>
-      <img src="images/ivan.jpg" alt="Иван Семериков" class="avatar">
-    </div>
+    <nav class="nav">
+      <a href="#companies">Компании</a>
+      <a href="#social">Общественная деятельность</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="section">
-      <h2><img src="images/logo_colored.png" alt="Логотип" class="inline-logo"> Центр управления бизнесом</h2>
-      <p class="mission"><em>Наша миссия — помогать предпринимателям развиваться и находить новые возможности.</em></p>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <h1>Иван Семериков</h1>
+      <p><em>Миссия: поддержка и развитие бизнеса</em></p>
+    </div>
+    <div>
+      <p class="email">📧 ivansemerikov@bk.ru</p>
+      <img src="images/ivan.jpg" alt="Иван Семериков" class="photo">
+    </div>
+  </section>
 
-    <section class="section statuses">
-      <h2>Статусы компании</h2>
-      <div class="status-row">
-        <img src="images/status1.jpg" alt="Статус 1">
-        <img src="images/status2.png" alt="Статус 2">
-        <img src="images/status3.png" alt="Статус 3">
-      </div>
-      <div class="cards">
-        <div class="card"><img src="images/1c_1.jpg" alt="1C photo 1"></div>
-        <div class="card"><img src="images/1c_2.jpg" alt="1C photo 2"></div>
-        <div class="card"><img src="images/1c_3.jpg" alt="1C photo 3"></div>
-      </div>
-    </section>
+  <!-- Центр управления бизнесом -->
+  <section id="companies" class="section">
+    <h2><img src="images/logo_colored.png" alt="Логотип" class="inline-logo"> Центр управления бизнесом</h2>
+    <div class="status-row">
+      <img src="images/status1.jpg" alt="Статус 1">
+      <img src="images/status2.png" alt="Статус 2">
+      <img src="images/status3.png" alt="Статус 3">
+    </div>
+  </section>
 
-    <section class="section">
-      <h2 class="small-title">Общественная деятельность</h2>
-      <div class="small-photos">
+  <!-- Фото 1С (теперь Статусы компании) -->
+  <section class="section">
+    <h2>Статусы компании</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/1c_1.jpg" alt="1C команда">
+        <div class="overlay"></div>
+        <div class="title">1C — команда</div>
+      </div>
+      <div class="card">
+        <img src="images/1c_2.jpg" alt="1C мероприятие">
+        <div class="overlay"></div>
+        <div class="title">1C — мероприятие</div>
+      </div>
+      <div class="card">
+        <img src="images/1c_3.jpg" alt="1C команда">
+        <div class="overlay"></div>
+        <div class="title">1C — команда</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Общественная деятельность -->
+  <section id="social" class="section">
+    <h2>Общественная деятельность</h2>
+    <div class="cards">
+      <div class="card">
         <img src="images/anomalia1.jpg" alt="Аномалия 1">
+      </div>
+      <div class="card">
         <img src="images/anomalia2.jpg" alt="Аномалия 2">
+      </div>
+      <div class="card">
         <img src="images/anomalia3.jpg" alt="Аномалия 3">
-        <img src="images/anomalia4.jpg" alt="Аномалия 4">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2 class="small-title">ОПОРА РОССИИ</h2>
-      <div class="small-photos">
-        <img src="images/opora1.jpg" alt="Опора России 1">
-        <img src="images/opora2.jpg" alt="Опора России 2">
+  <!-- Опора России -->
+  <section class="section">
+    <h2>Опора России</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/opora1.jpg" alt="Опора 1" class="opora-img"></div>
+        <div class="swiper-slide"><img src="images/opora2.jpg" alt="Опора 2" class="opora-img"></div>
       </div>
-    </section>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
 
-    <section id="contacts" class="section">
-      <h2>Контакты</h2>
-      <div class="contacts">
-        <a class="badge" href="https://t.me/Ivan_Semerikov" target="_blank">Связаться в Telegram</a>
-      </div>
-    </section>
-  </main>
+  <!-- Контакты -->
+  <section id="contacts" class="section">
+    <h2>Контакты</h2>
+    <div class="max-w-xl mx-auto p-6 border rounded-2xl shadow-lg text-center">
+      <p class="text-lg md:text-xl mb-4">Хотите обсудить проект или сотрудничество?</p>
+      <form action="https://t.me/Ivan_Semerikov" method="get">
+        <input type="submit" value="✈️ Написать в Telegram" class="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 hover:scale-105 transition"/>
+      </form>
+      <p class="mt-4 text-gray-600 text-sm md:text-base">
+        Или на почту: <a href="mailto:ivansemerikov@bk.ru" class="underline">ivansemerikov@bk.ru</a>
+      </p>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <a class="join-link" href="https://t.me/anomaly_grebenuk_bot?start=ambassador_5405060330" target="_blank">Вступить в Аномалию</a>
+  <!-- Footer -->
+  <footer class="section" style="text-align:center; padding:30px 0;">
+    <p><a href="https://t.me/anomaly_grebenuk_bot?start=ambassador_5405060330" target="_blank" class="underline">🚀 Вступить в Аномалию</a></p>
   </footer>
+
+  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.swiper').forEach(function(el){
+      new Swiper(el, {
+        loop: true,
+        spaceBetween: 16,
+        pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+        autoplay: { delay: 2600, disableOnInteraction: false },
+      });
+    });
+  </script>
 </body>
 </html>
