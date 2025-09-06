@@ -1,535 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Иван Семериков — сайт-визитка</title>
-    <meta name="description" content="Официальный сайт-визитка Ивана Семерикова. Фото, проекты и контакты.">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Иван Семериков — Предприниматель</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Иван Семериков — сайт-визитка</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Swiper -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css"/>
-
-  
-
-
-  <style>
-    .grid-photos .thumb{ position:relative; overflow:hidden; border-radius:12px }
-    .grid-photos .thumb img{ width:100%; display:block; transition: transform .28s ease }
-    .grid-photos .thumb:hover img{ transform: scale(1.05) }
-    .grid-photos .view-btn{
-      position:absolute; bottom:16px; right:16px;
-      padding:12px 20px; font-size:16px; font-weight:600; line-height:1;
-      background: rgba(0,0,0,0.65); color:#fff;
-      border:1px solid rgba(255,255,255,0.8); border-radius:999px;
-      opacity:0; transition: opacity .25s ease; cursor:pointer;
-    }
-    .grid-photos .thumb:hover .view-btn{ opacity:1 }
-    .grid-photos img { cursor: zoom-in; }
-    .opora-swiper img { object-fit: cover; object-position: top; }
-  </style>
-
-
-  <style>
-    /* Force faces visible in Opora thumbs */
-    img.opora-img { object-fit: cover !important; object-position: top !important; }
-  </style>
-
-
-  <style>
-    /* Portrait slider for Opora */
-    .opora-swiper .swiper-slide {
-      display:flex; justify-content:center; align-items:center;
-      width:320px; /* portrait card width */
-    }
-    .opora-swiper img {
-      width:100%; height:auto; object-fit:contain; border-radius:12px;
-      background:#000;
-    }
-
-    /* Improved Lightbox */
-    #lb { display:none; position:fixed; top:0; left:0; right:0; bottom:0;
-          background:rgba(0,0,0,0.85); justify-content:center; align-items:center;
-          z-index:9999; transition:opacity .3s ease; opacity:0; }
-    #lb.active { display:flex; opacity:1; animation:fadeIn .3s ease; }
-    #lb img { max-width:90%; max-height:90%; border-radius:8px; animation:scaleIn .3s ease; }
-    #lb-controls { position:absolute; top:20px; right:20px; display:flex; gap:15px; }
-    #lb-controls button {
-      background:rgba(0,0,0,0.6); border:none; color:#fff; font-size:24px; padding:8px 12px;
-      border-radius:6px; cursor:pointer; transition:background .2s;
-    }
-    #lb-controls button:hover { background:rgba(255,255,255,0.3); }
-    #lb-counter { position:absolute; bottom:20px; color:#fff; font-size:14px; }
-
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    @keyframes scaleIn { from {transform:scale(.8);} to {transform:scale(1);} }
-  </style>
-
 </head>
 <body>
-  <header class="header container">
-    <div style="font-weight:800;font-size:18px;letter-spacing:.4px">Иван Семериков</div>
-    <nav class="nav">
-      <a href="#companies">Компании</a>
-      <a href="#social">Общественная деятельность</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
+  <header class="site-header">
+    <div class="nav-left">Компании / Общественная деятельность / Контакты</div>
+
+    <div class="header-photo">
+      <div class="email">ivansemerikov@bk.ru</div>
+      <img src="images/ivan.jpg" alt="Иван Семериков" class="avatar">
+    </div>
   </header>
 
-  <section class="container hero">
-    <div>
-      <h1>Иван Семериков</h1>
-      <p>Предприниматель, основатель IT‑компании «Центр управления бизнесом»</p>
-      <div class="contacts">
-        <a class="badge" href="mailto:ivansemerikov@bk.ru">
-          <!-- Mail (Heroicons) -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5H4.5A2.25 2.25 0 0 0 2.25 6.75m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.5a2.25 2.25 0 0 1-2.32 0l-7.5-4.5A2.25 2.25 0 0 1 2.25 6.993V6.75"/>
-          </svg>
-          <span>Mail</span>
-        </a>
-        <a class="badge" href="https://t.me/Ivan_Semerikov" target="_blank">
-          <!-- Paper Airplane (Heroicons) -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.115 7.1 17.51 3.27c1.583-.528 3.118.932 2.59 2.515L16.27 17.17a1.875 1.875 0 0 1-3.068.78l-2.265-2.06a.75.75 0 0 0-.403-.19l-3.007-.43a1.125 1.125 0 0 1-.485-2.032L9.5 10.25a.75.75 0 0 0 .184-.18l3.387-4.606"/>
-          </svg>
-          <span>Telegram</span>
-        </a>
-      </div>
-    </div>
-    <img class="photo" src="images/ivan.jpg" alt="Иван Семериков">
-  </section>
-
-  <main class="container">
-    <section id="companies" class="section">
-      <h2>Компании</h2>
-      <p style="margin:6px 0 14px;font-size:18px">
-        <strong>Центр управления бизнесом</strong> — <a href="https://cub86.ru" target="_blank" style="text-decoration:underline">cub86.ru</a>.
-        Официальный партнёр фирмы «1С» с 2006 года. Продажа, внедрение, обслуживание программ 1С. Входит в ТОП‑5 партнёров 1С по Тюменской области.
-      </p>
-      <p style="color:#4b5563">Миссия: помогать организациям быстрее и эффективнее достигать целей, используя ИТ и продукты/услуги фирмы «1С».</p>
-
-      <div style="margin-top:16px;font-weight:600">Статусы компании</div>
-      <div class="status-row" style="margin-top:10px">
-        <img src="images/status1.jpg" alt="Статус 1">
-        <img src="images/status2.png" alt="Статус 2">
-        <img src="images/status3.png" alt="Статус 3">
-      </div>
+  <main class="page">
+    <section id="business" class="section">
+      <h2 class="section-title">
+        <img src="images/logo_colored.png" alt="Логотип" class="inline-logo">
+        Центр управления бизнесом
+      </h2>
+      <p class="mission"><em>Наша миссия — помогать предпринимателям развиваться и находить новые возможности.</em></p>
     </section>
 
-    <section id="social" class="section">
-      <h2>Общественная деятельность</h2>
+    <!-- Статусы компании (row) + под ним фото 1С -->
+    <section id="statuses" class="section">
+      <h2 class="section-title">Статусы компании</h2>
 
-      <!-- Аномалия slider -->
-      <div style="display:flex;align-items:center;gap:16px;margin-bottom:10px">
-        <img src="images/anomalia_logo.jpg" alt="Аномалия Тюмень" style="height:38px;border-radius:6px">
-        <div style="font-weight:600">Лидер города Тюмени предпринимательского сообщества «Аномалия»</div>
-      </div>
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/anomalia1.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/anomalia2.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/anomalia3.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="images/anomalia4.jpg" alt=""></div>
-        </div>
-        <div class="swiper-pagination"></div>
+      <div class="status-row">
+        <div class="status-item"><img src="images/status1.jpg" alt="Статус 1"></div>
+        <div class="status-item"><img src="images/status2.png" alt="Статус 2"></div>
+        <div class="status-item"><img src="images/status3.png" alt="Статус 3"></div>
       </div>
 
-      <!-- Опора slider -->
-      <div style="display:flex;align-items:center;gap:16px;margin-top:28px;margin-bottom:10px">
-        <div style="width:38px;height:38px;border-radius:6px;background:#111827;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">ОР</div>
-        <div style="font-weight:600">Член «ОПОРА РОССИИ» в Тюмени</div>
-      </div>
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img class="opora-img" src="images/opora1.jpg" alt="" style="object-fit:cover;object-position:top"></div>
-          <div class="swiper-slide"><img class="opora-img" src="images/opora2.jpg" alt="" style="object-fit:cover;object-position:top"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Фото 1С</h2>
       <div class="cards">
-        <div class="card">
-          <img src="images/1c_1.jpg" alt="1C photo 1">
-          <div class="overlay"></div>
-          <div class="title">1C — команда</div>
-        </div>
-        <div class="card">
-          <img src="images/1c_2.jpg" alt="1C photo 2">
-          <div class="overlay"></div>
-          <div class="title">1C — мероприятие</div>
-        </div>
-        <div class="card">
-          <img src="images/1c_3.jpg" alt="1C photo 3">
-          <div class="overlay"></div>
-          <div class="title">1C — команда</div>
-        </div>
+        <div class="card"><img src="images/1c_1.jpg" alt="1C 1"></div>
+        <div class="card"><img src="images/1c_2.jpg" alt="1C 2"></div>
+        <div class="card"><img src="images/1c_3.jpg" alt="1C 3"></div>
+      </div>
+    </section>
+
+    <section id="community" class="section">
+      <h2 class="section-title small-title">Общественная деятельность</h2>
+      <div class="small-photos">
+        <div class="small-item"><img src="images/anomalia1.jpg" alt="Аномалия 1"></div>
+        <div class="small-item"><img src="images/anomalia2.jpg" alt="Аномалия 2"></div>
+        <div class="small-item"><img src="images/anomalia3.jpg" alt="Аномалия 3"></div>
+        <div class="small-item"><img src="images/anomalia4.jpg" alt="Аномалия 4"></div>
+      </div>
+    </section>
+
+    <section id="opora" class="section">
+      <h2 class="section-title small-title">ОПОРА РОССИИ</h2>
+      <div class="small-photos">
+        <div class="small-item"><img src="images/opora1.jpg" alt="Опора 1"></div>
+        <div class="small-item"><img src="images/opora2.jpg" alt="Опора 2"></div>
       </div>
     </section>
 
     <section id="contacts" class="section">
-      <h2>Контакты</h2>
+      <h2 class="section-title">Контакты</h2>
       <div class="contacts">
-        <a class="badge" href="mailto:ivansemerikov@bk.ru">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5H4.5A2.25 2.25 0 0 0 2.25 6.75m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.5a2.25 2.25 0 0 1-2.32 0l-7.5-4.5A2.25 2.25 0 0 1 2.25 6.993V6.75"/>
-          </svg>
-          <span>Mail</span>
-        </a>
-        <a class="badge" href="https://t.me/Ivan_Semerikov" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.115 7.1 17.51 3.27c1.583-.528 3.118.932 2.59 2.515L16.27 17.17a1.875 1.875 0 0 1-3.068.78l-2.265-2.06a.75.75 0 0 0-.403-.19l-3.007-.43a1.125 1.125 0 0 1-.485-2.032L9.5 10.25a.75.75 0 0 0 .184-.18l3.387-4.606"/>
-          </svg>
-          <span>Telegram</span>
-        </a>
+        <a class="badge" href="https://t.me/Ivan_Semerikov" target="_blank" rel="noreferrer noopener">Связаться в Telegram</a>
       </div>
     </section>
   </main>
 
-  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    document.querySelectorAll('.swiper').forEach(function(el){
-      new Swiper(el, {
-        loop: true,
-        spaceBetween: 16,
-        pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
-        autoplay: { delay: 2600, disableOnInteraction: false },
-      });
-    });
-  </script>
-
-  <div class="lb-overlay" id="lb">
-    <a href="#" class="lb-close" id="lb-close">&times;</a>
-    <a href="#" class="lb-prev" id="lb-prev">&#10094;</a>
-    <img id="lb-img" src="" alt="">
-    <a href="#" class="lb-next" id="lb-next">&#10095;</a>
-    <div class="lb-counter" id="lb-counter"></div>
-  </div>
-
-
-  <script>
-    (function(){
-      const lb = document.getElementById('lb');
-      const lbImg = document.getElementById('lb-img');
-      const lbClose = document.getElementById('lb-close');
-      const lbPrev = document.getElementById('lb-prev');
-      const lbNext = document.getElementById('lb-next');
-      const lbCounter = document.getElementById('lb-counter');
-
-      // Build groups from DOM when ready
-      function buildGroups(){
-        const groups = { opora: [], onec: [] };
-
-        // Опора: по src включает 'opora' или alt содержит 'Опора'
-        document.querySelectorAll('img').forEach(img => {
-          const src = (img.getAttribute('src')||'').toLowerCase();
-          const alt = (img.getAttribute('alt')||'').toLowerCase();
-          if(src.includes('opora') || alt.includes('опора')){
-            img.classList.add('zoomable');
-            img.dataset.group = 'opora';
-            groups.opora.push(img.getAttribute('src'));
-          }
-        });
-
-        // 1С: находим грид и оборачиваем превью
-        document.querySelectorAll('.grid-photos img').forEach(img => {
-          // создаём обёртку, если её нет
-          if(!img.parentElement.classList.contains('thumb')){
-            const wrap = document.createElement('div');
-            wrap.className = 'thumb';
-            img.parentElement.insertBefore(wrap, img);
-            wrap.appendChild(img);
-            const btn = document.createElement('button');
-            btn.className = 'view-btn';
-            btn.textContent = 'Смотреть';
-            btn.dataset.src = img.getAttribute('src');
-            wrap.appendChild(btn);
-          }
-          img.classList.add('zoomable');
-          img.dataset.group = 'onec';
-          groups.onec.push(img.getAttribute('src'));
-        });
-
-        return groups;
-      }
-
-      let groups = {};
-      let currentGroup = null;
-      let currentIndex = 0;
-
-      function open(src){
-        // Определяем группу и индекс
-        currentGroup = null;
-        currentIndex = 0;
-        for(const [g, arr] of Object.entries(groups)){
-          const i = arr.indexOf(src);
-          if(i !== -1){ currentGroup = g; currentIndex = i; break; }
-        }
-        lbImg.src = src;
-        lb.classList.add('active');
-        updateCounter();
-      }
-
-      function updateCounter(){
-        if(currentGroup && groups[currentGroup]){
-          lbCounter.textContent = (currentIndex+1) + ' / ' + groups[currentGroup].length;
-        } else {
-          lbCounter.textContent = '';
-        }
-      }
-
-      function show(delta){
-        if(!currentGroup) return;
-        const arr = groups[currentGroup];
-        if(!arr || arr.length === 0) return;
-        currentIndex = (currentIndex + delta + arr.length) % arr.length;
-        lbImg.src = arr[currentIndex];
-        updateCounter();
-      }
-
-      document.addEventListener('DOMContentLoaded', function(){
-        groups = buildGroups();
-      });
-
-      // Делегируем клики
-      document.addEventListener('click', function(e){
-        // Кнопка "Смотреть"
-        const btn = e.target.closest('.view-btn');
-        if(btn){
-          e.preventDefault();
-          open(btn.dataset.src);
-          return;
-        }
-        // Клик по картинке
-        const zi = e.target.closest('img.zoomable');
-        if(zi){
-          e.preventDefault();
-          open(zi.getAttribute('src'));
-          return;
-        }
-        // Клик по фону для закрытия
-        if(e.target === lb){
-          lb.classList.remove('active');
-        }
-      });
-
-      lbClose.addEventListener('click', function(e){ e.preventDefault(); lb.classList.remove('active'); });
-      lbPrev.addEventListener('click', function(e){ e.preventDefault(); show(-1); });
-      lbNext.addEventListener('click', function(e){ e.preventDefault(); show(1); });
-
-      document.addEventListener('keydown', function(e){
-        if(!lb.classList.contains('active')) return;
-        if(e.key === 'Escape') lb.classList.remove('active');
-        if(e.key === 'ArrowLeft') show(-1);
-        if(e.key === 'ArrowRight') show(1);
-      });
-    })();
-  </script>
-
-  <script>
-    (function(){
-      const lb = document.getElementById('lb');
-      const lbImg = document.getElementById('lb-img');
-      const lbClose = document.getElementById('lb-close');
-      const lbPrev = document.getElementById('lb-prev');
-      const lbNext = document.getElementById('lb-next');
-      const lbCounter = document.getElementById('lb-counter');
-
-      let groups = {};
-      let currentGroup = null;
-      let currentIndex = 0;
-
-      function buildGroups(){
-        const groups = { opora: [], onec: [] };
-        document.querySelectorAll('img').forEach(img => {
-          const src = (img.getAttribute('src')||'').toLowerCase();
-          const alt = (img.getAttribute('alt')||'').toLowerCase();
-          if(src.includes('opora') || alt.includes('опора')){
-            img.classList.add('zoomable');
-            img.dataset.group = 'opora';
-            groups.opora.push(img.getAttribute('src'));
-          }
-        });
-        document.querySelectorAll('.grid-photos img').forEach(img => {
-          img.classList.add('zoomable');
-          img.dataset.group = 'onec';
-          groups.onec.push(img.getAttribute('src'));
-        });
-        return groups;
-      }
-
-      function open(src){
-        currentGroup = null;
-        currentIndex = 0;
-        for(const [g, arr] of Object.entries(groups)){
-          const i = arr.indexOf(src);
-          if(i !== -1){ currentGroup = g; currentIndex = i; break; }
-        }
-        lbImg.src = src;
-        lb.classList.add('active');
-        updateCounter();
-      }
-
-      function updateCounter(){
-        if(currentGroup && groups[currentGroup]){
-          lbCounter.textContent = (currentIndex+1) + ' / ' + groups[currentGroup].length;
-        } else {
-          lbCounter.textContent = '';
-        }
-      }
-
-      function show(delta){
-        if(!currentGroup) return;
-        const arr = groups[currentGroup];
-        if(!arr || arr.length === 0) return;
-        currentIndex = (currentIndex + delta + arr.length) % arr.length;
-        lbImg.src = arr[currentIndex];
-        updateCounter();
-      }
-
-      document.addEventListener('DOMContentLoaded', function(){
-        groups = buildGroups();
-      });
-
-      document.addEventListener('click', function(e){
-        const btn = e.target.closest('.view-btn');
-        if(btn){
-          e.preventDefault();
-          open(btn.dataset.src || btn.parentElement.querySelector('img').src);
-          return;
-        }
-        const zi = e.target.closest('img.zoomable');
-        if(zi){
-          e.preventDefault();
-          open(zi.getAttribute('src'));
-          return;
-        }
-        if(e.target === lb){
-          lb.classList.remove('active');
-        }
-      });
-
-      lbClose.addEventListener('click', function(e){ e.preventDefault(); lb.classList.remove('active'); });
-      lbPrev.addEventListener('click', function(e){ e.preventDefault(); show(-1); });
-      lbNext.addEventListener('click', function(e){ e.preventDefault(); show(1); });
-
-      document.addEventListener('keydown', function(e){
-        if(!lb.classList.contains('active')) return;
-        if(e.key === 'Escape') lb.classList.remove('active');
-        if(e.key === 'ArrowLeft') show(-1);
-        if(e.key === 'ArrowRight') show(1);
-      });
-    })();
-  </script>
-
-  <script>
-    (function(){
-      const lb = document.getElementById('lb');
-      const lbImg = document.getElementById('lb-img');
-      const lbClose = document.getElementById('lb-close');
-      const lbPrev = document.getElementById('lb-prev');
-      const lbNext = document.getElementById('lb-next');
-      const lbCounter = document.getElementById('lb-counter');
-
-      let groups = {};
-      let currentGroup = null;
-      let currentIndex = 0;
-
-      function buildGroups(){
-        const groups = { opora: [], onec: [] };
-        document.querySelectorAll('img').forEach(img => {
-          const src = (img.getAttribute('src')||'').toLowerCase();
-          const alt = (img.getAttribute('alt')||'').toLowerCase();
-          if(src.includes('opora') || alt.includes('опора')){
-            img.classList.add('zoomable');
-            img.dataset.group = 'opora';
-            groups.opora.push(img.getAttribute('src'));
-          }
-        });
-        document.querySelectorAll('.grid-photos img').forEach(img => {
-          img.classList.add('zoomable');
-          img.dataset.group = 'onec';
-          groups.onec.push(img.getAttribute('src'));
-        });
-        return groups;
-      }
-
-      function open(src){
-        currentGroup = null;
-        currentIndex = 0;
-        for(const [g, arr] of Object.entries(groups)){
-          const i = arr.indexOf(src);
-          if(i !== -1){ currentGroup = g; currentIndex = i; break; }
-        }
-        lbImg.src = src;
-        lb.classList.add('active');
-        updateControls();
-      }
-
-      function updateControls(){
-        if(currentGroup && groups[currentGroup]){
-          lbCounter.textContent = (currentIndex+1) + ' / ' + groups[currentGroup].length;
-          lbPrev.style.display = lbNext.style.display = (groups[currentGroup].length>1) ? 'inline-block':'none';
-        } else {
-          lbCounter.textContent = '';
-          lbPrev.style.display = lbNext.style.display = 'none';
-        }
-      }
-
-      function show(delta){
-        if(!currentGroup) return;
-        const arr = groups[currentGroup];
-        if(!arr || arr.length === 0) return;
-        currentIndex = (currentIndex + delta + arr.length) % arr.length;
-        lbImg.src = arr[currentIndex];
-        updateControls();
-      }
-
-      document.addEventListener('DOMContentLoaded', function(){
-        groups = buildGroups();
-      });
-
-      document.addEventListener('click', function(e){
-        const zi = e.target.closest('img.zoomable');
-        if(zi){ e.preventDefault(); open(zi.getAttribute('src')); return; }
-        if(e.target === lb){ lb.classList.remove('active'); }
-      });
-
-      lbClose.addEventListener('click', function(e){ e.preventDefault(); lb.classList.remove('active'); });
-      lbPrev.addEventListener('click', function(e){ e.preventDefault(); show(-1); });
-      lbNext.addEventListener('click', function(e){ e.preventDefault(); show(1); });
-
-      document.addEventListener('keydown', function(e){
-        if(!lb.classList.contains('active')) return;
-        if(e.key === 'Escape') lb.classList.remove('active');
-        if(e.key === 'ArrowLeft') show(-1);
-        if(e.key === 'ArrowRight') show(1);
-      });
-
-      // Swipe support
-      let touchStartX = null;
-      lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
-      lb.addEventListener('touchend', e => {
-        if(touchStartX === null) return;
-        let dx = e.changedTouches[0].screenX - touchStartX;
-        if(dx > 50) show(-1);
-        else if(dx < -50) show(1);
-        touchStartX = null;
-      });
-
-      // Click on left/right half of image to navigate
-      lbImg.addEventListener('click', function(e){
-        const rect = lbImg.getBoundingClientRect();
-        if(e.clientX < rect.left + rect.width/2) show(-1);
-        else show(1);
-      });
-    })();
-  </script>
+  <footer class="footer">
+    <a class="join-link" href="https://t.me/anomaly_grebenuk_bot?start=ambassador_5405060330" target="_blank" rel="noreferrer noopener">Вступить в Аномалию</a>
+  </footer>
 </body>
-
-
-
 </html>
