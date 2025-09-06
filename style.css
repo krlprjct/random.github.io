@@ -1,121 +1,250 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+/* ============================
+   Основной стиль сайта
+   (замени этим файлом ваш style.css)
+   ============================ */
+
+:root{
+  --page-max: 1200px;
+  --page-pad: 20px;
+  --accent: #0b74d1; /* основной синий */
+  --muted: #f4f4f4;
+  --text: #222;
+  --gap: 18px;
+}
+
+/* базовые */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, Arial, "Helvetica Neue", sans-serif;
+  color:var(--text);
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* --- HEADER --- */
+.header{
+  width:100%;
+  background:var(--muted);
+  padding:14px var(--page-pad);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+}
+
+.nav{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+.nav a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+  font-size:15px;
+  opacity:0.95;
+}
+.nav a:hover{opacity:1; color:var(--accent)}
+
+/* --- HERO / MAIN PHOTO --- */
+.hero{
+  max-width:var(--page-max);
+  margin:28px auto 10px;
+  padding:0 var(--page-pad);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+
+/* левый блок — заголовок/миссия */
+.hero > div:first-child{
+  flex:1 1 480px;
+}
+.hero h1{
+  margin:0 0 6px 0;
+  font-size:34px;
+  line-height:1.05;
+  letter-spacing:-0.2px;
+}
+.hero p em{font-style:italic; color:#333; font-size:16px;}
+
+/* правый блок — email + фото */
+.header-photo{ display:flex; flex-direction:column; align-items:flex-end; gap:10px; min-width:200px; }
+.header-photo .email{ font-size:14px; color:#333; }
+.photo, .avatar { 
+  display:block;
+  width:420px; /* основная большая фотка */
+  height:520px; /* под портреты лучше быть выше */
+  object-fit:cover; /* если хочешь видеть весь вертикальный кадр — поставь contain (см. примечание ниже) */
+  border-radius:10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+  background:#eee;
+}
+
+/* --- Секции --- */
+.page-wrapper{ max-width:var(--page-max); margin:0 auto; padding:0 var(--page-pad) 60px; }
+.section{
+  max-width:var(--page-max);
+  margin: 26px auto;
+  padding: 18px var(--page-pad);
+  border-bottom:1px solid rgba(0,0,0,0.04);
+}
+
+/* заголовки секций */
+.section h2{
+  margin:0 0 14px;
+  font-size:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.inline-logo{ height:34px; display:inline-block; }
+
+/* --- СТАТУСЫ (треб: центрировать) --- */
+.status-row{
+  display:flex;
+  justify-content:center; /* <-- центрируем статусы */
+  gap:var(--gap);
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:12px;
+}
+.status-row img{
+  display:block;
+  max-height:200px;
+  width:auto;
+  border-radius:8px;
+  object-fit:cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* --- отступ между статусами и блоком 1С (увеличили) --- */
+.cards{
+  display:flex;
+  gap:var(--gap);
+  flex-wrap:wrap;
+  margin-top:28px; /* <-- увеличенный отступ */
+  align-items:flex-start;
+}
+
+/* 1С карточки */
+.card{
   background: #fff;
-  color: #222;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+}
+.card img{
+  display:block;
+  max-height:260px;
+  width:auto;
+  object-fit:cover;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background: #f4f4f4;
+/* --- ОБЩЕСТВЕННАЯ ДЕЯТЕЛЬНОСТЬ (фото покрупнее) --- */
+.small-photos{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+}
+.small-photos img{
+  display:block;
+  max-height:210px; /* увеличено */
+  width:auto;
+  border-radius:8px;
+  object-fit:cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 
-.header .nav-left {
-  font-weight: bold;
+/* ОПОРА (используем те же правила) */
+.opora-img{
+  display:block;
+  max-height:210px;
+  width:auto;
+  border-radius:8px;
+  object-fit:cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 
-.header-photo {
-  text-align: center;
+/* --- КОНТАКТЫ — блок с формой/кнопкой (по твоему примеру) --- */
+.max-w-xl{
+  max-width:720px;
+  margin:0 auto;
+  padding:20px;
+  border-radius:18px;
+  border:1px solid rgba(0,0,0,0.06);
+  background:#fff;
+  box-shadow: 0 18px 40px rgba(12,20,30,0.05);
+  text-align:center;
+}
+.max-w-xl p{ margin:0 0 12px; color:#333; font-size:16px; }
+.max-w-xl input[type="submit"]{
+  cursor:pointer;
+  border:0;
+  padding:12px 20px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:14px;
+  font-weight:700;
+  font-size:16px;
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+  box-shadow: 0 8px 22px rgba(11,116,209,0.12);
+}
+.max-w-xl input[type="submit"]:hover{
+  transform: translateY(-3px) scale(1.01);
+  background:#055aa8;
 }
 
-.header-photo .email {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
+/* ссылка почты */
+.max-w-xl a{ color:var(--accent); text-decoration:underline; }
 
-.avatar {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.section {
-  padding: 32px 16px;
-}
-
-.section h2 {
-  margin-bottom: 16px;
-}
-
-.inline-logo {
-  height: 32px;
-  vertical-align: middle;
-  margin-right: 8px;
-}
-
-.mission {
-  font-size: 18px;
-  font-style: italic;
-}
-
-.status-row {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.status-row img {
-  max-height: 220px;
-}
-
-.cards {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.cards .card img {
-  max-height: 240px;
-  border-radius: 8px;
-}
-
-.small-photos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.small-photos img {
-  max-height: 160px;
-  border-radius: 8px;
-}
-
-.contacts {
-  text-align: center;
-}
-
-.contacts .badge {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #0088cc;
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-.footer {
-  text-align: center;
-  padding: 16px;
-  background: #f4f4f4;
-}
-
-.join-link {
-  display: inline-block;
-  padding: 12px 20px;
-  background: #0088cc;
-  color: #fff;
-  border-radius: 10px;
-  font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+/* --- FOOTER / JOIN --- */
+.footer{ text-align:center; padding:26px var(--page-pad); background:var(--muted); }
+.join-link{
+  display:inline-block;
+  padding:12px 20px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:12px;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 10px 28px rgba(0,0,0,0.08);
   transition: transform .12s ease, box-shadow .12s ease;
 }
-.join-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+.join-link:hover{ transform:translateY(-4px); box-shadow:0 14px 36px rgba(0,0,0,0.12); }
+
+/* общий контейнер для кнопки "Связаться в Telegram" (если используется .badge) */
+.badge{
+  display:inline-block;
+  padding:10px 18px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* --- адаптив --- */
+@media (max-width: 980px){
+  .hero{ flex-direction:column; align-items:flex-start; gap:16px; padding:0 var(--page-pad) 0; }
+  .header-photo{ align-items:flex-start; }
+  .photo, .avatar{ width:240px; height:300px; }
+  .status-row img{ max-height:140px; }
+  .cards .card img{ max-height:160px; }
+  .small-photos img{ max-height:140px; }
+  .max-w-xl{ padding:16px; }
+}
+
+@media (max-width: 420px){
+  .photo, .avatar{ width:160px; height:220px; }
+  .header{ padding:10px 12px; }
+  .nav a{ font-size:14px; }
+  .section{ padding:14px 12px; }
+  .status-row img, .small-photos img, .card img{ max-height:110px; }
 }
