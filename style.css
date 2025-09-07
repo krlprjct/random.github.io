@@ -1,250 +1,307 @@
-/* ============================
-   Основной стиль сайта
-   (замени этим файлом ваш style.css)
-   ============================ */
-
+@font-face{font-family:Inter;src:local("Inter"),local("Inter var");font-display:swap}
 :root{
-  --page-max: 1200px;
-  --page-pad: 20px;
-  --accent: #0b74d1; /* основной синий */
-  --muted: #f4f4f4;
-  --text: #222;
-  --gap: 18px;
+  --nav: #374151;
+  --nav-hover: #111827;
+}
+html,body{margin:0;padding:0}
+body{font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji","Segoe UI Emoji"; color:#111827; background:#fff}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+a{color:inherit;text-decoration:none}
+.header{display:flex;justify-content:space-between;align-items:center;padding:28px 0}
+.nav{display:flex;gap:28px;font-size:16px;color:var(--nav);font-weight:500}
+.nav a{opacity:.9;transition:opacity .2s,color .2s}
+.nav a:hover{color:var(--nav-hover);opacity:1}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:40px 0 10px}
+.hero h1{font-size:56px;line-height:1.02;margin:0;font-weight:800}
+.hero p{margin-top:14px;font-size:18px;color:#4b5563}
+.hero .photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.section{padding:40px 0 28px}
+.section h2{font-size:36px;margin:0 0 22px}
+.status-row {
+  display: flex;
+  justify-content: center;  /* центрируем фото */
+  align-items: center;
+  gap: 24px;                /* чуть больше расстояние */
+  flex-wrap: wrap;           /* перенос на новую строку при необходимости */
+  padding-bottom: 6px;
 }
 
-/* базовые */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: Inter, Arial, "Helvetica Neue", sans-serif;
-  color:var(--text);
-  background:#fff;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+.status-row img {
+  height: 200px;  /* крупнее */
+  width: auto;    /* сохраняем пропорции */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+  transition: transform .3s, box-shadow .3s;
 }
 
-/* --- HEADER --- */
-.header{
-  width:100%;
-  background:var(--muted);
-  padding:14px var(--page-pad);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  border-bottom:1px solid rgba(0,0,0,0.04);
+.status-row img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
 }
 
-.nav{
-  display:flex;
-  gap:18px;
-  align-items:center;
-}
-.nav a{
-  text-decoration:none;
-  color:var(--text);
-  font-weight:700;
-  font-size:15px;
-  opacity:0.95;
-}
-.nav a:hover{opacity:1; color:var(--accent)}
-
-/* --- HERO / MAIN PHOTO --- */
-.hero{
-  max-width:var(--page-max);
-  margin:28px auto 10px;
-  padding:0 var(--page-pad);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:28px;
+/* --- Адаптив для мобильных --- */
+@media (max-width: 768px) {
+  .status-row img { height: 140px; }
 }
 
-/* левый блок — заголовок/миссия */
-.hero > div:first-child{
-  flex:1 1 480px;
-}
-.hero h1{
-  margin:0 0 6px 0;
-  font-size:34px;
-  line-height:1.05;
-  letter-spacing:-0.2px;
-}
-.hero p em{font-style:italic; color:#333; font-size:16px;}
-
-/* правый блок — email + фото */
-.header-photo{ display:flex; flex-direction:column; align-items:flex-end; gap:10px; min-width:200px; }
-.header-photo .email{ font-size:14px; color:#333; }
-.photo, .avatar { 
-  display:block;
-  width:420px; /* основная большая фотка */
-  height:520px; /* под портреты лучше быть выше */
-  object-fit:cover; /* если хочешь видеть весь вертикальный кадр — поставь contain (см. примечание ниже) */
-  border-radius:10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
-  background:#eee;
+@media (max-width: 480px) {
+  .status-row img { height: 120px; }
 }
 
-/* --- Секции --- */
-.page-wrapper{ max-width:var(--page-max); margin:0 auto; padding:0 var(--page-pad) 60px; }
-.section{
-  max-width:var(--page-max);
-  margin: 26px auto;
-  padding: 18px var(--page-pad);
-  border-bottom:1px solid rgba(0,0,0,0.04);
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.10);transition:transform .3s, box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.14)}
+.card img{width:100%;height:260px;object-fit:cover;display:block}
+.card .overlay{position:absolute;inset:0;background:linear-gradient( to top, rgba(0,0,0,.45), rgba(0,0,0,.05) 60%);opacity:0;transition:opacity .3s}
+.card:hover .overlay{opacity:1}
+.card .title{position:absolute;left:16px;bottom:16px;color:#fff;font-weight:600;font-size:18px;letter-spacing:.2px}
+.card .go{position:absolute;right:14px;bottom:14px;color:#fff;display:flex;align-items:center;gap:6px;font-size:14px;opacity:.0;transform:translateY(6px);transition:opacity .25s, transform .25s}
+.card:hover .go{opacity:1;transform:translateY(0)}
+.swiper{width:100%;height:360px;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.10)}
+.swiper-slide img{width:100%;height:100%;object-fit:cover}
+.swiper-pagination-bullet{background:#111827;opacity:.4}
+.swiper-pagination-bullet-active{opacity:1}
+.contacts{display:flex;gap:18px;align-items:center;margin-top:12px}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #e5e7eb;padding:10px 14px;border-radius:999px;color:#374151;transition:transform .2s,box-shadow .2s, border-color .2s}
+.badge svg{width:18px;height:18px}
+.badge:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.12);border-color:#d1d5db}
+.badge small{opacity:.7}
+@media (max-width: 1024px){
+  .hero{grid-template-columns:1fr;gap:24px}
+  .hero h1{font-size:44px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .swiper{height:300px}
+}
+@media (max-width: 640px){
+  .nav{gap:18px;font-size:15px}
+  .hero h1{font-size:36px}
+  .cards{grid-template-columns:1fr}
+  .swiper{height:240px}
+  .status-row img{height:96px}
 }
 
-/* заголовки секций */
-.section h2{
-  margin:0 0 14px;
-  font-size:20px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.inline-logo{ height:34px; display:inline-block; }
-
-/* --- СТАТУСЫ (треб: центрировать) --- */
-.status-row{
-  display:flex;
-  justify-content:center; /* <-- центрируем статусы */
-  gap:var(--gap);
-  flex-wrap:wrap;
-  align-items:center;
-  margin-bottom:12px;
-}
-.status-row img{
-  display:block;
-  max-height:200px;
-  width:auto;
-  border-radius:8px;
-  object-fit:cover;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+/* --- FIXED: ОПОРА РОССИИ contain improved --- */
+.swiper-slide img.opora-img {
+    width: auto !important;
+    height: auto !important;
+    max-height: 600px !important;
+    object-fit: contain !important;
+    background: #000 !important;
+    margin: 0 auto;
+    display: block;
 }
 
-/* --- отступ между статусами и блоком 1С (увеличили) --- */
-.cards{
-  display:flex;
-  gap:var(--gap);
-  flex-wrap:wrap;
-  margin-top:28px; /* <-- увеличенный отступ */
-  align-items:flex-start;
+
+/* --- CLEAN FINAL: ОПОРА РОССИИ cover (лица в кадре) --- */
+.opora-photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
-/* 1С карточки */
-.card{
+.status-row.opora-photos img {
+  height: 260px !important; /* реально увеличиваем фотки */
+  width: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.status-row.opora-photos img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+}
+
+
+
+/* --- Adaptive Fixes for Ivan Semerikov site --- */
+@media (max-width: 768px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .cards .card img {
+        width: 100% !important;
+        height: auto !important;
+    }
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .contacts {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}
+
+.anomaly-swiper {
+  width: 100%;
+  height: 100vh;          /* фиксированный размер слайда */
+}
+
+.anomaly-swiper .swiper-slide img.anomaly-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* фотка заполняет весь слайд */
+  object-position: center; /* центрируем важную часть фото */
+}
+
+#anomaly.section {
+  padding-top: 0px; /* было 40px */
+}
+
+/* Заголовок */
+#contacts h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #111827;
+}
+
+/* Карточка */
+.contact-card {
   background: #fff;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.04);
-}
-.card img{
-  display:block;
-  max-height:260px;
-  width:auto;
-  object-fit:cover;
+  border-radius: 16px;
+  padding: 32px 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+  font-family: "Inter", sans-serif;
 }
 
-/* --- ОБЩЕСТВЕННАЯ ДЕЯТЕЛЬНОСТЬ (фото покрупнее) --- */
-.small-photos{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  align-items:flex-start;
-}
-.small-photos img{
-  display:block;
-  max-height:210px; /* увеличено */
-  width:auto;
-  border-radius:8px;
-  object-fit:cover;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+/* Текст */
+.contact-card p {
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
-/* ОПОРА (используем те же правила) */
-.opora-img{
-  display:block;
-  max-height:210px;
-  width:auto;
-  border-radius:8px;
-  object-fit:cover;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+/* Кнопка */
+.contact-card .btn-telegram {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
 }
 
-/* --- КОНТАКТЫ — блок с формой/кнопкой (по твоему примеру) --- */
-.max-w-xl{
-  max-width:720px;
-  margin:0 auto;
-  padding:20px;
-  border-radius:18px;
-  border:1px solid rgba(0,0,0,0.06);
-  background:#fff;
-  box-shadow: 0 18px 40px rgba(12,20,30,0.05);
-  text-align:center;
-}
-.max-w-xl p{ margin:0 0 12px; color:#333; font-size:16px; }
-.max-w-xl input[type="submit"]{
-  cursor:pointer;
-  border:0;
-  padding:12px 20px;
-  background:var(--accent);
-  color:#fff;
-  border-radius:14px;
-  font-weight:700;
-  font-size:16px;
-  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
-  box-shadow: 0 8px 22px rgba(11,116,209,0.12);
-}
-.max-w-xl input[type="submit"]:hover{
-  transform: translateY(-3px) scale(1.01);
-  background:#055aa8;
+.contact-card .btn-telegram:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
 }
 
-/* ссылка почты */
-.max-w-xl a{ color:var(--accent); text-decoration:underline; }
-
-/* --- FOOTER / JOIN --- */
-.footer{ text-align:center; padding:26px var(--page-pad); background:var(--muted); }
-.join-link{
-  display:inline-block;
-  padding:12px 20px;
-  background:var(--accent);
-  color:#fff;
-  border-radius:12px;
-  font-weight:800;
-  text-decoration:none;
-  box-shadow:0 10px 28px rgba(0,0,0,0.08);
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-.join-link:hover{ transform:translateY(-4px); box-shadow:0 14px 36px rgba(0,0,0,0.12); }
-
-/* общий контейнер для кнопки "Связаться в Telegram" (если используется .badge) */
-.badge{
-  display:inline-block;
-  padding:10px 18px;
-  background:var(--accent);
-  color:#fff;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
+/* Почта */
+.contact-card .email {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #374151;
 }
 
-/* --- адаптив --- */
-@media (max-width: 980px){
-  .hero{ flex-direction:column; align-items:flex-start; gap:16px; padding:0 var(--page-pad) 0; }
-  .header-photo{ align-items:flex-start; }
-  .photo, .avatar{ width:240px; height:300px; }
-  .status-row img{ max-height:140px; }
-  .cards .card img{ max-height:160px; }
-  .small-photos img{ max-height:140px; }
-  .max-w-xl{ padding:16px; }
+.contact-card .email a {
+  color: #2563eb;
+  text-decoration: none;
 }
 
-@media (max-width: 420px){
-  .photo, .avatar{ width:160px; height:220px; }
-  .header{ padding:10px 12px; }
-  .nav a{ font-size:14px; }
-  .section{ padding:14px 12px; }
-  .status-row img, .small-photos img, .card img{ max-height:110px; }
+.contact-card .email a:hover {
+  text-decoration: underline;
+}
+
+/* --- HERO CTA (отступы и выравнивание) --- */
+.hero-cta{
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start; /* на мобиле можно сделать center, если нужно */
+}
+
+/* --- Карточка "Контакты" --- */
+#contact.section h2 { /* использует твой общий .section h2, но центрируем */
+  text-align: center;
+}
+
+.contact-card{
+  max-width: 640px;
+  margin: 0 auto 48px;
+  padding: 32px 40px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+.contact-card p{
+  margin: 0 0 20px;
+  font-size: 18px;
+  color: #111827;
+  line-height: 1.5;
+}
+
+/* --- Универсальная кнопка --- */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background-color .2s, border-color .2s;
+  border: 0;                 /* ЖЁСТКО убираем старые обводки */
+  outline: none;             /* убираем старые outlines, ниже дадим нормальный focus */
+}
+
+.btn-primary{
+  background: #2563eb;       /* blue-600 */
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(37,99,235,.30);
+}
+
+.btn-primary:hover{
+  background: #1d4ed8;       /* blue-700 */
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(37,99,235,.35);
+}
+
+/* Доступный фокус — аккуратная подсветка без «уродской» обводки браузера */
+.btn:focus-visible{
+  outline: 2px solid #93c5fd;   /* светло-синий */
+  outline-offset: 2px;
+}
+
+/* На маленьких экранах чуть компактнее */
+@media (max-width: 640px){
+  .contact-card{ padding: 24px; }
+  .btn{ padding: 12px 18px; }
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;           /* расстояние между логотипом и текстом */
+  font-size: 18px;
+  margin: 6px 0 14px;
+  color: #111827;
+}
+
+.company-header .company-logo {
+  height: 28px;        /* подбираем размер под текст */
+  width: auto;
+  display: block;
 }
