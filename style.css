@@ -305,3 +305,196 @@ a{color:inherit;text-decoration:none}
   width: auto;
   display: block;
 }
+
+.main-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.main-nav span {
+  color: #888;
+}
+
+.status-title {
+  text-align: center;      /* центрируем текст */
+  font-weight: 600;        /* жирный */
+  font-size: 20px;         /* чуть больше */
+  margin-top: 16px;
+  margin-bottom: 10px;     /* отступ до фоток */
+  color: #111827;          /* чёткий серый */
+}
+
+.status-row img {
+  height: 240px; /* увеличим фотки */
+  width: auto;
+  border-radius: 12px;
+  cursor: zoom-in;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.status-row img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+}
+
+.anomalia-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.company-logo {
+  height: 38px;
+  width: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+.anomalia-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #111827;
+}
+
+.anomalia-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+.anomalia-text p {
+  margin: 6px 0 14px;
+  font-size: 18px;
+  font-style: normal;
+}
+
+.anomalia-text ul {
+  margin-top: 8px;
+  margin-left: 20px;
+  list-style: disc;
+}
+
+.anomalia-text li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.anomalia-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.anomalia-photo {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform .3s, box-shadow .3s;
+  cursor: zoom-in;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 250px;
+}
+
+.anomalia-photo.vertical {
+  width: auto;
+  height: 250px;
+}
+
+.anomalia-photo.horizontal {
+  width: 300px;
+  height: auto;
+}
+
+.anomalia-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+}
+
+.anomalia-button {
+  padding: 12px 24px;
+  background-color: #2563eb;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.anomalia-button:hover {
+  background-color: #1d4ed8;
+}
+
+.contact-card {
+  text-align: center;
+  margin-top: 0; /* минимальный отступ сверху блока */
+}
+
+.contact-card p {
+  margin: 0 0 6px 0; /* сверху 0, снизу 6px — небольшой отступ к кнопке */
+  font-size: 16px;
+  color: #4b5563;
+}
+
+.contact-button {
+  margin-top: 6px; /* чуть больше, чем было 4px */
+  padding: 10px 22px;
+}
+
+.contact-button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.16);
+}
+
+.contact-card .email {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.contact-card .email a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.grid-photos {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap; /* на маленьких экранах перенос */
+}
+
+.grid-photos .thumb {
+  flex: 1 1 200px;       /* одинаковая ширина для всех фото */
+  max-width: 200px;
+}
+
+.grid-photos .thumb img {
+  display: block;
+  width: 100%;
+  height: 150px;         /* фиксированная высота */
+  object-fit: cover;     /* обрезка без деформации */
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: zoom-in;
+}
+
+.grid-photos .thumb:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+}
+
+.statuses h2,
+.section.photo-1c h2 {
+  text-align: center;   /* центрируем текст */
+  margin-bottom: 16px;
+  font-size: 20px;      /* размер для этих заголовков */
+  color: #111827;
+}
